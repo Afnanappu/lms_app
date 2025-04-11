@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lms_app/constants/app_colors.dart';
+import 'package:lms_app/core/constants/app_colors.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key, required this.searchController});
