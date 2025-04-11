@@ -55,5 +55,13 @@ class AppTheme {
     ),
     // Custom colors for charts or custom widgets
     canvasColor: AppColors.chartGray,
+
+    // Search bar theme
+    searchBarTheme: SearchBarThemeData(
+      backgroundColor: WidgetStateColor.resolveWith(
+        (_) => AppColors.backgroundLight,
+      ),
+      elevation: WidgetStateProperty.resolveWith((_) => 0),
+    ),
   );
 }
