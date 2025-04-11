@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:lms_app/components/subject_card.dart';
+import 'package:lms_app/widgets/home_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+  final searchController = SearchController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          // SliverAppBar(
-          //   backgroundColor: Color(0xFF4b17cd),
-          //   collapsedHeight: kToolbarHeight,
-          //   expandedHeight: 300,
-          //   flexibleSpace: FlexibleSpaceBar(background: FlutterLogo()),
-          // ),
+          HomeAppBar(searchController: searchController),
+
           SliverGrid.builder(
             itemCount: 50,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
