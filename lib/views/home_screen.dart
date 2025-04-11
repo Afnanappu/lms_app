@@ -40,7 +40,10 @@ class HomeScreen extends StatelessWidget {
                       subtitle: subject.description,
                       onTap: () {
                         debugPrint(subject.title);
-                        AppNav.push(context, const ModulesScreen());
+                        AppNav.push(
+                          context,
+                          ModulesScreen(subjectId: subject.id),
+                        );
                       },
                     ),
                   );
