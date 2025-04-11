@@ -30,7 +30,7 @@ class AppColors {
   ); // Blue accent (e.g., charts)
   static const Color accentGreen = Color(
     0xFF2ECC71,
-  ); // Green accent (e.g., checkmarks)
+  ); // Green accent (e.g., check marks)
 
   // Chart Colors (for Statistics section)
   static const Color chartRed = Color(0xFFE74C3C); // Red bars in activity chart

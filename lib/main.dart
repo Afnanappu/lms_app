@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms_app/constants/app_theme.dart';
 import 'package:lms_app/views/home_screen.dart';
 
 void main() {
@@ -10,6 +11,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomeScreen());
+    return MaterialApp(home: HomeScreen(), theme: AppTheme.lightTheme);
   }
 }
