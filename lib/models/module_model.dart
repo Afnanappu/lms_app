@@ -2,7 +2,7 @@
 import 'dart:convert';
 
 class ModuleModel {
-  final String id;
+  final int id;
   final String title;
   final String description;
   ModuleModel({
@@ -13,7 +13,7 @@ class ModuleModel {
 
   factory ModuleModel.fromMap(Map<String, dynamic> map) {
     return ModuleModel(
-      id: map['id'] as String,
+      id: map['id'] as int,
       title: map['title'] as String,
       description: map['description'] as String,
     );

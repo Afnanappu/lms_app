@@ -28,10 +28,7 @@ class AppExceptionHandler {
       case DioExceptionType.receiveTimeout:
         return "Receive Timeout";
       case DioExceptionType.badResponse:
-        return _handleStatusCode(
-          dioError.response?.statusCode,
-          dioError.response?.data,
-        );
+        return handleStatusCode(dioError.response?.statusCode);
       case DioExceptionType.cancel:
         return "Request Cancelled";
       case DioExceptionType.connectionError:
@@ -43,7 +40,7 @@ class AppExceptionHandler {
     }
   }
 
-  static String _handleStatusCode(int? statusCode, dynamic data) {
+  static String handleStatusCode(int? statusCode) {
     switch (statusCode) {
       case 400:
         return "Bad Request";

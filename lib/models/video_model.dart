@@ -4,7 +4,7 @@ import 'dart:convert';
 enum VideoType { youtube, vimeo }
 
 class VideoModel {
-  final String id;
+  final int id;
   final String title;
   final String description;
   final VideoType videoType;
@@ -17,25 +17,9 @@ class VideoModel {
     required this.videoUrl,
   });
 
-  VideoModel copyWith({
-    String? id,
-    String? title,
-    String? description,
-    VideoType? videoType,
-    String? videoUrl,
-  }) {
-    return VideoModel(
-      id: id ?? this.id,
-      title: title ?? this.title,
-      description: description ?? this.description,
-      videoType: videoType ?? this.videoType,
-      videoUrl: videoUrl ?? this.videoUrl,
-    );
-  }
-
   factory VideoModel.fromMap(Map<String, dynamic> map) {
     return VideoModel(
-      id: map['id'] as String,
+      id: map['id'] as int,
       title: map['title'] as String,
       description: map['description'] as String,
       videoType:

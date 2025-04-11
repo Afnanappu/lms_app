@@ -2,7 +2,7 @@
 import 'dart:convert';
 
 class SubjectModel {
-  final String id;
+  final int id;
   final String title;
   final String description;
   final String image;
@@ -15,7 +15,7 @@ class SubjectModel {
 
   factory SubjectModel.fromMap(Map<String, dynamic> map) {
     return SubjectModel(
-      id: map['id'] as String,
+      id: map['id'] as int,
       title: map['title'] as String,
       description: map['description'] as String,
       image: map['image'] as String,
