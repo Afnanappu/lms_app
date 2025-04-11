@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lms_app/core/constants/app_theme.dart';
 import 'package:lms_app/services/api_service.dart';
-import 'package:lms_app/view_models/subject_provider.dart';
+import 'package:lms_app/view_models/modules_provider.dart';
+import 'package:lms_app/view_models/subjects_provider.dart';
 import 'package:lms_app/views/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +18,7 @@ class MainApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => SubjectProvider(apiService)),
+        ChangeNotifierProvider(create: (_) => ModulesProvider(apiService)),
       ],
       builder:
           (context, child) => MaterialApp(

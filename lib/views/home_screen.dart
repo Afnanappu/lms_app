@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lms_app/components/subject_card.dart';
 import 'package:lms_app/core/app_navigations.dart';
-import 'package:lms_app/view_models/subject_provider.dart';
+import 'package:lms_app/view_models/subjects_provider.dart';
 import 'package:lms_app/views/modules_screen.dart';
 import 'package:lms_app/widgets/home_app_bar.dart';
 import 'package:provider/provider.dart';

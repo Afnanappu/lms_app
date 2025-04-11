@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms_app/view_models/modules_provider.dart';
 import 'package:provider/provider.dart';
 
 class ModulesScreen extends StatelessWidget {
@@ -8,8 +9,7 @@ class ModulesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Modules')),
-      //TODO: Add consumer type
-      body: Consumer(
+      body: Consumer<ModulesProvider>(
         builder: (context, value, child) {
           return const Center(child: Text('Modules Screen'));
         },
