@@ -12,7 +12,8 @@ dependencies:
   dio: ^5.8.0+1
   provider: ^6.1.4
   cached_network_image: ^3.4.1
-  pod_player: ^0.2.2
+  youtube_player_flutter: ^9.1.1
+  vimeo_player_flutter: ^0.1.0
 
 dev_dependencies:
   flutter_test:
