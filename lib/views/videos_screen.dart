@@ -14,6 +14,13 @@ class VideosScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Videos')),
       body: Consumer<VideosProvider>(
         builder: (context, provider, child) {
+          if (provider.isLoading) {
+            return Center(child: CircularProgressIndicator.adaptive());
+          }
+
+          if (provider.errorMessage != null) {
+            return Center(child: Text(provider.errorMessage!));
+          }
           return ListView.builder(
             itemCount: provider.videoModels.length,
             itemBuilder: (context, index) {

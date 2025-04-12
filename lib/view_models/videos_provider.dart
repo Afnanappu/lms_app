@@ -6,13 +6,26 @@ class VideosProvider extends ChangeNotifier {
   final ApiService _apiService;
   VideosProvider(this._apiService);
 
-  List<VideoModel> videoModels = [];
+  List<VideoModel> _videoModels = [];
+  bool _isLoading = false;
+  String? _errorMessage;
+
+  List<VideoModel> get videoModels => _videoModels;
+  bool get isLoading => _isLoading;
+  String? get errorMessage => _errorMessage;
 
   Future<void> fetchVideoModels(int moduleId) async {
-    final data = await _apiService.fetchVideos(moduleId);
-
-    videoModels = data;
-
+    _isLoading = true;
     notifyListeners();
+
+    try {
+      _videoModels = await _apiService.fetchVideos(moduleId);
+      _errorMessage = null;
+    } catch (e) {
+      _errorMessage = e.toString();
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
   }
 }

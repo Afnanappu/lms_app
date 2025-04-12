@@ -19,6 +19,13 @@ class ModulesScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Modules')),
       body: Consumer<ModulesProvider>(
         builder: (context, provider, child) {
+          if (provider.isLoading) {
+            return Center(child: CircularProgressIndicator.adaptive());
+          }
+
+          if (provider.errorMessage != null) {
+            return Center(child: Text(provider.errorMessage!));
+          }
           return ListView.builder(
             itemCount: provider.modules.length,
             itemBuilder: (context, index) {

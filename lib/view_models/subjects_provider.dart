@@ -10,9 +10,9 @@ class SubjectProvider extends ChangeNotifier {
   bool _isLoading = false;
   String? _errorMessage;
 
-  List<SubjectModel> get subjects => _subjects;
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
+  List<SubjectModel> get subjects => _subjects;
 
   Future<void> fetchSubjects() async {
     _isLoading = true;

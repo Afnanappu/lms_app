@@ -6,11 +6,26 @@ class ModulesProvider extends ChangeNotifier {
   final ApiService _apiService;
   ModulesProvider(this._apiService);
 
-  List<ModuleModel> modules = [];
+  List<ModuleModel> _modules = [];
+  bool _isLoading = false;
+  String? _errorMessage;
+
+  bool get isLoading => _isLoading;
+  String? get errorMessage => _errorMessage;
+  List<ModuleModel> get modules => _modules;
 
   Future<void> fetchModules(int subjectId) async {
-    final data = await _apiService.fetchModules(subjectId);
-    modules = data;
+    _isLoading = true;
     notifyListeners();
+
+    try {
+      _modules = await _apiService.fetchModules(subjectId);
+      _errorMessage = null;
+    } catch (e) {
+      _errorMessage = e.toString();
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
   }
 }
