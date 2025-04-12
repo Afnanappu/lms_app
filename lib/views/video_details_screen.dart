@@ -13,7 +13,7 @@ class VideoDetailsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            //TODO: try to add here animation
+            //TODO: add hero animation
 
             // Video Player
             CustomVideoPlayer(

@@ -14,6 +14,13 @@ class SubjectProvider extends ChangeNotifier {
   String? get errorMessage => _errorMessage;
   List<SubjectModel> get subjects => _subjects;
 
+  /// Fetches the list of subjects from the API. If a [query] is provided, it will filter the
+  /// subjects to only include those that contain the query in their title (case insensitive).
+  ///
+  /// Updates the [subjects], [isLoading] and [errorMessage] fields accordingly. Notifies the
+  /// listeners when the operation is complete.
+  ///
+  /// throws message on error
   Future<void> fetchSubjects([String? query]) async {
     _isLoading = true;
     notifyListeners();
