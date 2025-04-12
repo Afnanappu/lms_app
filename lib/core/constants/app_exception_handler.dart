@@ -3,6 +3,16 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 class AppExceptionHandler {
+  /// Handles a given error and returns a user-friendly string describing the issue.
+  ///
+  /// The error is checked against the following types and returned as a string:
+  ///
+  /// - `DioException`: calls `_handleDioError` to handle the error.
+  /// - `SocketException`: returns "No Internet Connection".
+  /// - `FormatException`: returns "Invalid Data Format".
+  /// - `TimeoutException`: returns "Connection Timeout".
+  /// - `TypeError`: returns "Type error occurred".
+  /// - All other errors: returns "Something went wrong".
   static String handle(dynamic error) {
     if (error is DioException) {
       return _handleDioError(error);
@@ -40,6 +50,16 @@ class AppExceptionHandler {
     }
   }
 
+  /// Handles a given status code and returns a user-friendly string describing the issue.
+  ///
+  /// The status code is checked against the following values and returned as a string:
+  ///
+  /// - 400: returns "Bad Request".
+  /// - 401: returns "Unauthorized".
+  /// - 403: returns "Forbidden".
+  /// - 404: returns "Not Found".
+  /// - 500: returns "Internal Server Error".
+  /// - All other status codes: returns "Received invalid status code: $statusCode".
   static String handleStatusCode(int? statusCode) {
     switch (statusCode) {
       case 400:

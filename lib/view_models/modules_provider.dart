@@ -14,6 +14,12 @@ class ModulesProvider extends ChangeNotifier {
   String? get errorMessage => _errorMessage;
   List<ModuleModel> get modules => _modules;
 
+  /// Fetches the list of modules for a given [subjectId] from the API
+  ///
+  /// Updates the [modules], [errorMessage] and [isLoading] fields
+  /// accordingly. Notifies the listeners when the operation is complete.
+  ///
+  /// throws message on error
   Future<void> fetchModules(int subjectId) async {
     _isLoading = true;
     notifyListeners();

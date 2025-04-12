@@ -12,6 +12,9 @@ class ApiService {
 
   final dio = Dio();
 
+  /// Fetches the list of subjects from the API
+  ///
+  /// throws message on error
   Future<List<SubjectModel>> fetchSubjects() async {
     try {
       final response = await dio.get("$baseUrl/subjects.php");
@@ -27,6 +30,9 @@ class ApiService {
     }
   }
 
+  /// Fetches the list of modules from the API based on the given [subjectId]
+  ///
+  /// throws message on error
   Future<List<ModuleModel>> fetchModules(int subjectId) async {
     try {
       final response = await dio.get(
@@ -45,6 +51,9 @@ class ApiService {
     }
   }
 
+  /// Fetches the list of videos from the API based on the given [moduleId]
+  ///
+  /// throws message on error
   Future<List<VideoModel>> fetchVideos(int moduleId) async {
     try {
       final response = await dio.get(

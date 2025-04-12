@@ -19,7 +19,10 @@ class MainApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => SubjectProvider(apiService)..fetchSubjects(),
+          create:
+              (_) =>
+                  SubjectProvider(apiService)
+                    ..fetchSubjects(), // fetch subjects
         ),
         ChangeNotifierProvider(create: (_) => ModulesProvider(apiService)),
         ChangeNotifierProvider(create: (_) => VideosProvider(apiService)),

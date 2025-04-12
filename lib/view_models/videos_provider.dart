@@ -14,6 +14,12 @@ class VideosProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
 
+  /// Fetches the list of videos from the API based on the given [moduleId]
+  ///
+  /// Updates the [videoModels], [isLoading] and [errorMessage] fields
+  /// accordingly. Notifies the listeners when the operation is complete.
+  ///
+  /// throws message on error
   Future<void> fetchVideoModels(int moduleId) async {
     _isLoading = true;
     notifyListeners();
