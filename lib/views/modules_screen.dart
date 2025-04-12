@@ -3,7 +3,7 @@ import 'package:lms_app/components/module_card.dart';
 import 'package:lms_app/core/app_navigations.dart';
 import 'package:lms_app/view_models/modules_provider.dart';
 import 'package:lms_app/view_models/videos_provider.dart';
-import 'package:lms_app/views/module_details_screen.dart';
+import 'package:lms_app/views/videos_screen.dart';
 import 'package:provider/provider.dart';
 
 class ModulesScreen extends StatelessWidget {
@@ -28,7 +28,7 @@ class ModulesScreen extends StatelessWidget {
                 index: index,
                 onTap: () {
                   context.read<VideosProvider>().fetchVideoModels(module.id);
-                  AppNav.push(context, ModuleDetailsScreen());
+                  AppNav.push(context, VideosScreen());
                 },
               );
             },

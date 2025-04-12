@@ -3,8 +3,8 @@ import 'package:lms_app/components/video_list_card.dart';
 import 'package:lms_app/view_models/videos_provider.dart';
 import 'package:provider/provider.dart';
 
-class ModuleDetailsScreen extends StatelessWidget {
-  const ModuleDetailsScreen({super.key});
+class VideosScreen extends StatelessWidget {
+  const VideosScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
