@@ -48,7 +48,7 @@ class ApiService {
   Future<List<VideoModel>> fetchVideos(int moduleId) async {
     try {
       final response = await dio.get(
-        "$baseUrl/modules.php",
+        "$baseUrl/videos.php",
         queryParameters: {"module_id": moduleId},
       );
       if (response.statusCode == 200) {
