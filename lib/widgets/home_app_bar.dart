@@ -46,9 +46,9 @@ class HomeAppBar extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          //TODO: Add time based greeting
+
                           Text(
-                            'Good Afternoon',
+                            getGreeting(),
                             style: TextStyle(
                               color: AppColors.buttonText,
                               fontSize: 18,
@@ -84,5 +84,17 @@ class HomeAppBar extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String getGreeting() {
+    final hour = DateTime.now().hour;
+
+    if (hour >= 5 && hour < 12) {
+      return "Good Morning";
+    } else if (hour >= 12 && hour < 17) {
+      return "Good Afternoon";
+    } else {
+      return "Good Evening";
+    }
   }
 }
