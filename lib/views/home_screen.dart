@@ -13,8 +13,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<SubjectProvider>().fetchSubjects();
+      context.read<SubjectProvider>().fetchSubjects(); // fetch subjects
     });
+
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -22,6 +24,23 @@ class HomeScreen extends StatelessWidget {
 
           Consumer<SubjectProvider>(
             builder: (context, provider, child) {
+              if (provider.isLoading) {
+                return SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: height * 0.65,
+                    child: Center(child: CircularProgressIndicator.adaptive()),
+                  ),
+                );
+              }
+
+              if (provider.errorMessage != null) {
+                return SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: height * 0.65,
+                    child: Center(child: Text(provider.errorMessage!)),
+                  ),
+                );
+              }
               return SliverGrid.builder(
                 itemCount: provider.subjects.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
