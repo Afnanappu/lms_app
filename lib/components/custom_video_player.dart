@@ -13,7 +13,6 @@ class CustomVideoPlayer extends StatelessWidget {
     required this.videoType,
   });
 
-  // final Size size;
   final String url;
   final VideoType videoType;
 
@@ -34,7 +33,6 @@ class CustomVideoPlayer extends StatelessWidget {
               ),
               // height: 200,
               width: size.width * 0.9,
-
               child:
                   videoType == VideoType.youtube
                       ? YouTubeVideoPlayer(videoUrl: url)

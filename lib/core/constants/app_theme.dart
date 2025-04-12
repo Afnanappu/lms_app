@@ -63,5 +63,7 @@ class AppTheme {
       ),
       elevation: WidgetStateProperty.resolveWith((_) => 0),
     ),
+
+    indicatorColor: AppColors.primaryDarkPurple,
   );
 }

@@ -22,7 +22,7 @@ class VideoDetailsScreen extends StatelessWidget {
             ),
 
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 8,
@@ -30,7 +30,7 @@ class VideoDetailsScreen extends StatelessWidget {
                   Text(
                     videoModel.title,
                     style: const TextStyle(
-                      color: AppColors.primaryLightPurple,
+                      color: AppColors.primaryGradientEnd,
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),

@@ -14,12 +14,25 @@ class SubjectProvider extends ChangeNotifier {
   String? get errorMessage => _errorMessage;
   List<SubjectModel> get subjects => _subjects;
 
-  Future<void> fetchSubjects() async {
+  Future<void> fetchSubjects([String? query]) async {
     _isLoading = true;
     notifyListeners();
     try {
-      _subjects = await _apiService.fetchSubjects();
+      final data = await _apiService.fetchSubjects();
       _errorMessage = null;
+
+      // when searching
+      if (query != null) {
+        _subjects =
+            data
+                .where(
+                  (element) =>
+                      element.title.toLowerCase().contains(query.toLowerCase()),
+                )
+                .toList();
+      } else {
+        _subjects = data;
+      }
     } catch (e) {
       _errorMessage = e.toString();
     } finally {

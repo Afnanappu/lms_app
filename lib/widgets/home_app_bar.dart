@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:lms_app/core/constants/app_colors.dart';
+import 'package:lms_app/core/utils/debouncer.dart';
+import 'package:lms_app/view_models/subjects_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomeAppBar extends StatelessWidget {
-  const HomeAppBar({super.key, required this.searchController});
-
-  final SearchController searchController;
-
+  HomeAppBar({super.key});
+  final debounce = Debouncer(milliseconds: 500);
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Color(0xFF4b17cd),
+      backgroundColor: AppColors.primaryGradientStart,
       expandedHeight: 165,
-      // expandedHeight: 200,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
@@ -23,6 +23,7 @@ class HomeAppBar extends StatelessWidget {
                 'assets/app_bar_bg.png',
                 fit: BoxFit.cover,
                 width: double.infinity,
+                colorBlendMode: BlendMode.color,
               ),
             ),
             Container(
@@ -62,7 +63,24 @@ class HomeAppBar extends StatelessWidget {
                   // Search bar
                   SearchBar(
                     hintText: 'Search Here',
-                    controller: searchController,
+                    onChanged: (value) {
+                      debounce.run(() {
+                        if (value.trim().isEmpty) {
+                          return;
+                        }
+                        context.read<SubjectProvider>().fetchSubjects(
+                          value.trim(),
+                        ); // fetch filtered subjects
+                      });
+                    },
+                    onSubmitted: (value) {
+                      if (value.trim().isEmpty) {
+                        context.read<SubjectProvider>().fetchSubjects();
+                      }
+                    },
+                    onTapOutside: (_) {
+                      FocusManager.instance.primaryFocus?.unfocus();
+                    },
                     backgroundColor: WidgetStateProperty.resolveWith(
                       (_) => AppColors.cardBackground,
                     ),

@@ -16,7 +16,7 @@ class VideoListCard extends StatelessWidget {
         title: Text(
           videoModel.title,
           style: TextStyle(
-            color: AppColors.accentPink,
+            color: AppColors.primaryLightPurple,
             fontSize: 18,
             fontWeight: FontWeight.w500,
           ),
@@ -31,7 +31,7 @@ class VideoListCard extends StatelessWidget {
         ),
         leading: Icon(
           Icons.play_circle_fill_rounded,
-          color: AppColors.accentPink,
+          color: AppColors.primaryLightPurple,
         ),
       ),
     );

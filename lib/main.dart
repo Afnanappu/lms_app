@@ -18,7 +18,9 @@ class MainApp extends StatelessWidget {
     final ApiService apiService = ApiService();
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => SubjectProvider(apiService)),
+        ChangeNotifierProvider(
+          create: (_) => SubjectProvider(apiService)..fetchSubjects(),
+        ),
         ChangeNotifierProvider(create: (_) => ModulesProvider(apiService)),
         ChangeNotifierProvider(create: (_) => VideosProvider(apiService)),
       ],

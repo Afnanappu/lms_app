@@ -22,7 +22,7 @@ class ModuleCard extends StatelessWidget {
         title: Text(
           module.title,
           style: TextStyle(
-            color: AppColors.accentBlue,
+            color: AppColors.primaryGradientStart,
             fontSize: 18,
             fontWeight: FontWeight.w500,
           ),
@@ -38,7 +38,7 @@ class ModuleCard extends StatelessWidget {
         leading: Text(
           '${index + 1}',
           style: TextStyle(
-            color: AppColors.accentBlue,
+            color: AppColors.primaryGradientStart,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -47,7 +47,7 @@ class ModuleCard extends StatelessWidget {
         trailing: Icon(
           Icons.arrow_forward_ios_outlined,
           size: 20,
-          color: AppColors.accentBlue,
+          color: AppColors.primaryGradientStart,
         ),
       ),
     );
