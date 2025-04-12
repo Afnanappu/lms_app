@@ -46,6 +46,7 @@ class HomeAppBar extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          //TODO: Add time based greeting
                           Text(
                             'Good Afternoon',
                             style: TextStyle(

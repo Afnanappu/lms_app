@@ -42,3 +42,17 @@ class CustomVideoPlayer extends StatelessWidget {
     );
   }
 }
+
+class PlayVideoFromNetwork extends StatefulWidget {
+  const PlayVideoFromNetwork({super.key});
+
+  @override
+  State<PlayVideoFromNetwork> createState() => _PlayVideoFromNetworkState();
+}
+
+class _PlayVideoFromNetworkState extends State<PlayVideoFromNetwork> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
