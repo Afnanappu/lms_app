@@ -12,6 +12,8 @@ class VideoDetailsScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Video Details')),
       body: Column(
         children: [
+          //TODO: try to add here animation
+
           // Video Player
           CustomVideoPlayer(
             url: videoModel.videoUrl,

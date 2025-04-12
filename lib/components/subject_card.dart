@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lms_app/core/constants/app_colors.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class SubjectCard extends StatelessWidget {
   const SubjectCard({
@@ -28,7 +29,17 @@ class SubjectCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(12)),
-                child: Image.network(image),
+                child: CachedNetworkImage(
+                  imageUrl: image,
+                  fit: BoxFit.cover,
+                  placeholder: (_, _) {
+                    return Container(color: AppColors.chartGray, height: 140);
+                  },
+                  errorWidget: (_, _, error) {
+                    return Container(color: AppColors.chartGray, height: 140);
+                  },
+                ),
+                // Image.network(image),
               ),
               Text(
                 title,
