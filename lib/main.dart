@@ -27,6 +27,7 @@ class MainApp extends StatelessWidget {
       builder:
           (context, child) => MaterialApp(
             debugShowCheckedModeBanner: false,
+            title: 'LearnFlow',
             home: HomeScreen(),
             theme: AppTheme.lightTheme,
           ),
